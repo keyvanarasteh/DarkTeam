@@ -61,7 +61,7 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
                       Row(children: [
                       
                        AdItem1(
-                        image: 'assets/images/resim2.png',
+                        image: 'assets/images/sezen.png',
                         text:"Türkiyenin En Çok Dinlenilen Kadın Sanatçısı",
                        ), 
                        AdItem1(
@@ -315,7 +315,7 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
                       Row(children: [ 
                       
                       AdItem1(
-                        image: 'assets/images/resim2.png',
+                        image: 'assets/images/sezen.png',
                         text:"Türkiyenin En Çok Dinlenilen Kadın Sanatçısı",
                        ), 
                        AdItem1(
@@ -564,7 +564,7 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
                             Row(
                               children: [
                                 AdItem1(
-                                  image: 'assets/images/resim2.png',
+                                  image: 'assets/images/sezen.png',
                                   text:
                                       "Türkiyenin En Çok Dinlenilen Kadın Sanatçısı",
                                 ),

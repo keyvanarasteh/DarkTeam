@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:responsive/common/spotify_appbar.dart';
+import 'package:responsive/spotify/spotify_ekran.dart';
+
 import 'package:responsive/spotify/spotify_screen.dart' show SpotifyScreen;
 
 void main() {
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.dark,
         primarySwatch: Colors.blue,
       ),
-      home: SpotifyScreen(),
+      home: spotify_ekran(),
     );
   }
 }
