@@ -94,10 +94,13 @@ class _loginState extends State<login> {
                           ),
                           TextField(
                             keyboardType: TextInputType.number,
+                            obscureText: true,
                             inputFormatters: [
                               FilteringTextInputFormatter.digitsOnly
                             ],
+
                             decoration: InputDecoration(
+                              
                               labelText: "Şifre Giriniz",
                               prefixIcon: Icon(Icons.password),
                               border: OutlineInputBorder(),
@@ -131,6 +134,7 @@ class _loginState extends State<login> {
                                   },
                                   children: [
                                     ExpansionPanel(
+                                      canTapOnHeader: true,
                                       backgroundColor: Colors.transparent,
                                       headerBuilder: ((context, isExpanded) {
                                         return Center(
