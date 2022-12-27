@@ -2,8 +2,16 @@
 
 import 'package:flutter/material.dart';
 
-class SNavigationBar extends StatelessWidget {
+class SNavigationBar extends StatefulWidget {
   const SNavigationBar({super.key});
+
+  @override
+  State<SNavigationBar> createState() => _SNavigationBarState();
+}
+
+class _SNavigationBarState extends State<SNavigationBar> {
+
+  double volume = 0.5;
 
   String ekranBoyutu(double width) {
     if (width <= 576) {
@@ -134,16 +142,27 @@ class SNavigationBar extends StatelessWidget {
                         height: 10,
                       ),
                       Container(
-                        alignment: Alignment.centerRight,
-                        width: 50,
-                        height: 3,
+                        // alignment: Alignment.centerRight,
+                        width: 100,
+                        height: 10,
+                        child: Slider(
+                          activeColor: Colors.grey,
+                          thumbColor: Colors.green,
+                          value: volume,
+                          onChanged: (value) {
+                            print(value);
+                            setState(() {
+                              volume=value;
+                            });
+                          },
+                        ),
                         decoration: BoxDecoration(
-                          color: Colors.grey,
-                          border: Border.all(
-                            color: Colors.grey,
-                          ),
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(10)),
+                          //color: Colors.pink,
+                          // border: Border.all(
+                          //   color: Colors.grey,
+                          // ),
+                          // borderRadius:
+                          //     BorderRadius.all(Radius.circular(10)),
                         ),
                       ),
                     ],
