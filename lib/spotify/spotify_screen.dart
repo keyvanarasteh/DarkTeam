@@ -10,7 +10,9 @@ import 'package:responsive/spotify/drawer_menu.dart';
 import 'package:responsive/spotify/drawer_menu_tablet.dart';
 
 class SpotifyScreen extends StatefulWidget {
+  
   const SpotifyScreen({super.key});
+
 
   @override
   State<SpotifyScreen> createState() => _SpotifyScreenState();
@@ -29,6 +31,8 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
     }
   }
 
+  Set<String>skills = {};
+
   @override
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
@@ -38,12 +42,126 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
       if (device == "mobile") {
         return Scaffold(
           backgroundColor: Color.fromARGB(255, 10, 10, 10),
-          body:
-          SingleChildScrollView(
+          body: 
+          SingleChildScrollView( 
             scrollDirection: Axis.vertical,
             child: Column(
               children: [
                 SizedBox(height: 50,),
+            
+              Wrap(
+                children: [
+                  InputChip( 
+                    label:Text("POP"),
+                    selected: skills.contains("POP"),
+                selectedColor: Color.fromARGB(255, 4, 191, 10),
+                      shadowColor: Color.fromARGB(255, 177, 252, 179),
+                      backgroundColor: Colors.green.shade700,
+                    onSelected: (value) {
+                       if(value){
+                        skills.add("POP");
+                       }
+                       else{
+                        skills.remove("POP");
+                       }
+                       setState(() {});
+                    },
+                  ),
+                   InputChip(
+                      label: Text("KLASİK"),
+                      selected: skills.contains("KLASİK"),
+                      selectedColor: Color.fromARGB(255, 4, 191, 10),
+                      shadowColor: Color.fromARGB(255, 177, 252, 179),
+                      backgroundColor: Colors.green.shade700,
+                      onSelected: (value) {
+                        if (value) {
+                          skills.add("KLASİK");
+                        } else {
+                          skills.remove("KLASİK");
+                        }
+                        setState(() {});
+                      },
+                    ),
+                              InputChip(
+                      label: Text("RAP"),
+                      selected: skills.contains("RAP"),
+                     selectedColor: Color.fromARGB(255, 4, 191, 10),
+                      shadowColor: Color.fromARGB(255, 177, 252, 179),
+                      backgroundColor: Colors.green.shade700,
+                      onSelected: (value) {
+                        if (value) {
+                          skills.add("RAP");
+                        } else {
+                          skills.remove("RAP");
+                        }
+                        setState(() {});
+                      },
+                    ), 
+                               InputChip(
+                      label: Text("SLOW"),
+                      selected: skills.contains("SLOW"),
+                       selectedColor: Color.fromARGB(255, 4, 191, 10),
+                      shadowColor: Color.fromARGB(255, 177, 252, 179),
+                      backgroundColor: Colors.green.shade700,
+                      onSelected: (value) {
+                        if (value) {
+                          skills.add("SLOW");
+                        } else {
+                          skills.remove("SLOW");
+                        }
+                        setState(() {});
+                      },
+                    ),
+                               InputChip(
+                      label: Text("CAZ"),
+                      selected: skills.contains("CAZ"),
+                       selectedColor: Color.fromARGB(255, 4, 191, 10),
+                      shadowColor: Color.fromARGB(255, 177, 252, 179),
+                      backgroundColor: Colors.green.shade700,
+                      onSelected: (value) {
+                        if (value) {
+                          skills.add("CAZ");
+                        } else {
+                          skills.remove("CAZ");
+                        }
+                        setState(() {});
+                      },
+                    ),
+                               InputChip(
+                      label: Text("ROCK"),
+                      selected: skills.contains("ROCK"),
+                    selectedColor: Color.fromARGB(255, 4, 191, 10),
+                      shadowColor: Color.fromARGB(255, 177, 252, 179),
+                      backgroundColor: Colors.green.shade700,
+                      onSelected: (value) {
+                        if (value) {
+                          skills.add("ROCK");
+                        } else {
+                          skills.remove("ROCK");
+                        }
+                        setState(() {});
+                      },
+                    ),
+                               InputChip(
+                      label: Text("HİP HOP"),
+                      selected: skills.contains("HİP HOP"),
+                     selectedColor: Color.fromARGB(255, 4, 191, 10),
+                      shadowColor: Color.fromARGB(255, 177, 252, 179),
+                      backgroundColor: Colors.green.shade700,
+                      onSelected: (value) {
+                        if (value) {
+                          skills.add("HİP HOP");
+                        } else {
+                          skills.remove("HİP HOP");
+                        }
+                        setState(() {});
+                      },
+                    ),
+                ],
+              ),
+                SizedBox(
+                  height: 30,
+                ),
                 Padding(
                   padding: const EdgeInsets.only(left:10.0,bottom: 10),
                   child: Row(
@@ -298,6 +416,116 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
             child: Column(
               children: [
                 SizedBox(height: 50,),
+                     Wrap(
+                        children: [
+                          InputChip(
+                            label: Text("POP"),
+                            selected: skills.contains("POP"),
+                            selectedColor: Color.fromARGB(255, 4, 191, 10),
+                            shadowColor: Color.fromARGB(255, 177, 252, 179),
+                            backgroundColor: Colors.green.shade700,
+                            onSelected: (value) {
+                              if (value) {
+                                skills.add("POP");
+                              } else {
+                                skills.remove("POP");
+                              }
+                              setState(() {});
+                            },
+                          ),
+                          InputChip(
+                            label: Text("KLASİK"),
+                            selected: skills.contains("KLASİK"),
+                            selectedColor: Color.fromARGB(255, 4, 191, 10),
+                            shadowColor: Color.fromARGB(255, 177, 252, 179),
+                            backgroundColor: Colors.green.shade700,
+                            onSelected: (value) {
+                              if (value) {
+                                skills.add("KLASİK");
+                              } else {
+                                skills.remove("KLASİK");
+                              }
+                              setState(() {});
+                            },
+                          ),
+                          InputChip(
+                            label: Text("RAP"),
+                            selected: skills.contains("RAP"),
+                       selectedColor: Color.fromARGB(255, 4, 191, 10),
+                            shadowColor: Color.fromARGB(255, 177, 252, 179),
+                            backgroundColor: Colors.green.shade700,
+                            onSelected: (value) {
+                              if (value) {
+                                skills.add("RAP");
+                              } else {
+                                skills.remove("RAP");
+                              }
+                              setState(() {});
+                            },
+                          ),
+                          InputChip(
+                            label: Text("SLOW"),
+                            selected: skills.contains("SLOW"),
+                      selectedColor: Color.fromARGB(255, 4, 191, 10),
+                            shadowColor: Color.fromARGB(255, 177, 252, 179),
+                            backgroundColor: Colors.green.shade700,
+                            onSelected: (value) {
+                              if (value) {
+                                skills.add("SLOW");
+                              } else {
+                                skills.remove("SLOW");
+                              }
+                              setState(() {});
+                            },
+                          ),
+                          InputChip(
+                            label: Text("CAZ"),
+                            selected: skills.contains("CAZ"),
+                            selectedColor: Color.fromARGB(255, 4, 191, 10),
+                            shadowColor: Color.fromARGB(255, 177, 252, 179),
+                            backgroundColor: Colors.green.shade700,
+                            onSelected: (value) {
+                              if (value) {
+                                skills.add("CAZ");
+                              } else {
+                                skills.remove("CAZ");
+                              }
+                              setState(() {});
+                            },
+                          ),
+                          InputChip(
+                            label: Text("ROCK"),
+                            selected: skills.contains("ROCK"),
+                            selectedColor: Color.fromARGB(255, 4, 191, 10),
+                            shadowColor: Color.fromARGB(255, 177, 252, 179),
+                            backgroundColor: Colors.green.shade700,
+                            onSelected: (value) {
+                              if (value) {
+                                skills.add("ROCK");
+                              } else {
+                                skills.remove("ROCK");
+                              }
+                              setState(() {});
+                            },
+                          ),
+                          InputChip(
+                            label: Text("HİP HOP"),
+                            selected: skills.contains("HİP HOP"),
+                            selectedColor: Color.fromARGB(255, 4, 191, 10),
+                            shadowColor: Color.fromARGB(255, 177, 252, 179),
+                            backgroundColor: Colors.green.shade700,
+                            onSelected: (value) {
+                              if (value) {
+                                skills.add("HİP HOP");
+                              } else {
+                                skills.remove("HİP HOP");
+                              }
+                              setState(() {});
+                            },
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 30,),
                 Padding(
                   padding: const EdgeInsets.only(left:10.0,bottom: 10),
                   child: Row(
@@ -541,6 +769,116 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
                       SizedBox(
                         height: 50,
                       ),
+                      Wrap(
+                        children: [
+                          InputChip(
+                            label: Text("POP"),
+                            selected: skills.contains("POP"),
+                            selectedColor: Color.fromARGB(255, 4, 191, 10),
+                            shadowColor: Color.fromARGB(255, 177, 252, 179),
+                            backgroundColor: Colors.green.shade700,
+                            onSelected: (value) {
+                              if (value) {
+                                skills.add("POP");
+                              } else {
+                                skills.remove("POP");
+                              }
+                              setState(() {});
+                            },
+                          ),
+                          InputChip(
+                            label: Text("KLASİK"),
+                            selected: skills.contains("KLASİK"),
+                            selectedColor: Color.fromARGB(255, 4, 191, 10),
+                            shadowColor: Color.fromARGB(255, 177, 252, 179),
+                            backgroundColor: Colors.green.shade700,
+                            onSelected: (value) {
+                              if (value) {
+                                skills.add("KLASİK");
+                              } else {
+                                skills.remove("KLASİK");
+                              }
+                              setState(() {});
+                            },
+                          ),
+                          InputChip(
+                            label: Text("RAP"),
+                            selected: skills.contains("RAP"),
+                         selectedColor: Color.fromARGB(255, 4, 191, 10),
+                            shadowColor: Color.fromARGB(255, 177, 252, 179),
+                            backgroundColor: Colors.green.shade700,
+                            onSelected: (value) {
+                              if (value) {
+                                skills.add("RAP");
+                              } else {
+                                skills.remove("RAP");
+                              }
+                              setState(() {});
+                            },
+                          ),
+                          InputChip(
+                            label: Text("SLOW"),
+                            selected: skills.contains("SLOW"),
+                        selectedColor: Color.fromARGB(255, 4, 191, 10),
+                            shadowColor: Color.fromARGB(255, 177, 252, 179),
+                            backgroundColor: Colors.green.shade700,
+                            onSelected: (value) {
+                              if (value) {
+                                skills.add("SLOW");
+                              } else {
+                                skills.remove("SLOW");
+                              }
+                              setState(() {});
+                            },
+                          ),
+                          InputChip(
+                            label: Text("CAZ"),
+                            selected: skills.contains("CAZ"),
+                        selectedColor: Color.fromARGB(255, 4, 191, 10),
+                            shadowColor: Color.fromARGB(255, 177, 252, 179),
+                            backgroundColor: Colors.green.shade700,
+                            onSelected: (value) {
+                              if (value) {
+                                skills.add("CAZ");
+                              } else {
+                                skills.remove("CAZ");
+                              }
+                              setState(() {});
+                            },
+                          ),
+                          InputChip(
+                            label: Text("ROCK"),
+                            selected: skills.contains("ROCK"),
+                           selectedColor: Color.fromARGB(255, 4, 191, 10),
+                            shadowColor: Color.fromARGB(255, 177, 252, 179),
+                            backgroundColor: Colors.green.shade700,
+                            onSelected: (value) {
+                              if (value) {
+                                skills.add("ROCK");
+                              } else {
+                                skills.remove("ROCK");
+                              }
+                              setState(() {});
+                            },
+                          ),
+                          InputChip(
+                            label: Text("HİP HOP"),
+                            selected: skills.contains("HİP HOP"),
+                            selectedColor: Color.fromARGB(255, 4, 191, 10),
+                             shadowColor: Color.fromARGB(255, 177, 252, 179),
+                            backgroundColor: Colors.green.shade700,
+                            onSelected: (value) {
+                              if (value) {
+                                skills.add("HİP HOP");
+                              } else {
+                                skills.remove("HİP HOP");
+                              }
+                              setState(() {});
+                            },
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 30),
                       Padding(
                         padding: const EdgeInsets.only(left: 10.0, bottom: 10),
                         child: Row(
