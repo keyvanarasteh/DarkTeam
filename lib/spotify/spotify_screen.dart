@@ -8,11 +8,10 @@ import 'package:responsive/common/navigationbar.dart';
 import 'package:responsive/common/spotify_appbar.dart';
 import 'package:responsive/spotify/drawer_menu.dart';
 import 'package:responsive/spotify/drawer_menu_tablet.dart';
+import 'package:responsive/spotify/musiclist.dart';
 
 class SpotifyScreen extends StatefulWidget {
-  
   const SpotifyScreen({super.key});
-
 
   @override
   State<SpotifyScreen> createState() => _SpotifyScreenState();
@@ -31,7 +30,7 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
     }
   }
 
-  Set<String>skills = {};
+  Set<String> skills = {};
 
   @override
   Widget build(BuildContext context) {
@@ -42,32 +41,31 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
       if (device == "mobile") {
         return Scaffold(
           backgroundColor: Color.fromARGB(255, 10, 10, 10),
-          body: 
-          SingleChildScrollView( 
+          body: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Column(
               children: [
-                SizedBox(height: 50,),
-            
-              Wrap(
-                children: [
-                  InputChip( 
-                    label:Text("POP"),
-                    selected: skills.contains("POP"),
-                selectedColor: Color.fromARGB(255, 4, 191, 10),
+                SizedBox(
+                  height: 50,
+                ),
+                Wrap(
+                  children: [
+                    InputChip(
+                      label: Text("POP"),
+                      selected: skills.contains("POP"),
+                      selectedColor: Color.fromARGB(255, 4, 191, 10),
                       shadowColor: Color.fromARGB(255, 177, 252, 179),
                       backgroundColor: Colors.green.shade700,
-                    onSelected: (value) {
-                       if(value){
-                        skills.add("POP");
-                       }
-                       else{
-                        skills.remove("POP");
-                       }
-                       setState(() {});
-                    },
-                  ),
-                   InputChip(
+                      onSelected: (value) {
+                        if (value) {
+                          skills.add("POP");
+                        } else {
+                          skills.remove("POP");
+                        }
+                        setState(() {});
+                      },
+                    ),
+                    InputChip(
                       label: Text("KLASİK"),
                       selected: skills.contains("KLASİK"),
                       selectedColor: Color.fromARGB(255, 4, 191, 10),
@@ -82,10 +80,10 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
                         setState(() {});
                       },
                     ),
-                              InputChip(
+                    InputChip(
                       label: Text("RAP"),
                       selected: skills.contains("RAP"),
-                     selectedColor: Color.fromARGB(255, 4, 191, 10),
+                      selectedColor: Color.fromARGB(255, 4, 191, 10),
                       shadowColor: Color.fromARGB(255, 177, 252, 179),
                       backgroundColor: Colors.green.shade700,
                       onSelected: (value) {
@@ -96,11 +94,11 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
                         }
                         setState(() {});
                       },
-                    ), 
-                               InputChip(
+                    ),
+                    InputChip(
                       label: Text("SLOW"),
                       selected: skills.contains("SLOW"),
-                       selectedColor: Color.fromARGB(255, 4, 191, 10),
+                      selectedColor: Color.fromARGB(255, 4, 191, 10),
                       shadowColor: Color.fromARGB(255, 177, 252, 179),
                       backgroundColor: Colors.green.shade700,
                       onSelected: (value) {
@@ -112,10 +110,10 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
                         setState(() {});
                       },
                     ),
-                               InputChip(
+                    InputChip(
                       label: Text("CAZ"),
                       selected: skills.contains("CAZ"),
-                       selectedColor: Color.fromARGB(255, 4, 191, 10),
+                      selectedColor: Color.fromARGB(255, 4, 191, 10),
                       shadowColor: Color.fromARGB(255, 177, 252, 179),
                       backgroundColor: Colors.green.shade700,
                       onSelected: (value) {
@@ -127,10 +125,10 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
                         setState(() {});
                       },
                     ),
-                               InputChip(
+                    InputChip(
                       label: Text("ROCK"),
                       selected: skills.contains("ROCK"),
-                    selectedColor: Color.fromARGB(255, 4, 191, 10),
+                      selectedColor: Color.fromARGB(255, 4, 191, 10),
                       shadowColor: Color.fromARGB(255, 177, 252, 179),
                       backgroundColor: Colors.green.shade700,
                       onSelected: (value) {
@@ -142,10 +140,10 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
                         setState(() {});
                       },
                     ),
-                               InputChip(
+                    InputChip(
                       label: Text("HİP HOP"),
                       selected: skills.contains("HİP HOP"),
-                     selectedColor: Color.fromARGB(255, 4, 191, 10),
+                      selectedColor: Color.fromARGB(255, 4, 191, 10),
                       shadowColor: Color.fromARGB(255, 177, 252, 179),
                       backgroundColor: Colors.green.shade700,
                       onSelected: (value) {
@@ -157,164 +155,198 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
                         setState(() {});
                       },
                     ),
-                ],
-              ),
+                  ],
+                ),
                 SizedBox(
                   height: 30,
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left:10.0,bottom: 10),
+                  padding: const EdgeInsets.only(left: 10.0, bottom: 10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Container(child: Text("2022'nin Favorileri",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),),
+                      Container(
+                        child: Text(
+                          "2022'nin Favorileri",
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ],
                   ),
                 ),
-                Container(
-                  height: 300,
-                  child: ListView(
-                            scrollDirection: Axis.horizontal,
-                    children: [
-                      Row(children: [
-                      
-                       AdItem1(
-                        image: 'assets/images/sezen.png',
-                        text:"Türkiyenin En Çok Dinlenilen Kadın Sanatçısı",
-                       ), 
-                       AdItem1(
-                        image: 'assets/images/resim3.png',
-                        text: "Yılın En çok Dinlenen Grubu ",
-
-                      ), 
-                      
-                      AdItem1(
-                        image: 'assets/images/resim1.png',
-                        text: "Yılın En Çok Dinlenilen Sanatçısı",
-
+                Card(
+                  color: Color.fromARGB(255, 10, 10, 10),
+                  child: GestureDetector(
+                    onTap: (() {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => musiclist()));
+                    }),
+                    child: Container(
+                      height: 300,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          Row(
+                            children: [
+                              AdItem1(
+                                image: 'assets/images/sezen.png',
+                                text:
+                                    "Türkiyenin En Çok Dinlenilen Kadın Sanatçısı",
+                              ),
+                              AdItem1(
+                                image: 'assets/images/resim3.png',
+                                text: "Yılın En çok Dinlenen Grubu ",
+                              ),
+                              AdItem1(
+                                image: 'assets/images/resim1.png',
+                                text: "Yılın En Çok Dinlenilen Sanatçısı",
+                              ),
+                              AdItem1(
+                                image: 'assets/images/resim4.png',
+                                text: "Yılın En Çok Dinlenilen Albümü",
+                              ),
+                              AdItem1(
+                                image: 'assets/images/resim5.png',
+                                text: "Yılın En Çok Dinlenilen Erkek Sanatçısı",
+                              ),
+                              AdItem1(
+                                image: 'assets/images/resim6.png',
+                                text: "Yılın En Çok Dinlenilen Şarkısı",
+                              ),
+                              AdItem1(
+                                image: 'assets/images/resim7.png',
+                                text: "Yılın En Çok Dinlenilen Grubu",
+                              ),
+                              AdItem1(
+                                image: 'assets/images/mavigri.png',
+                                text:
+                                    "Yılın En Çok Dinlenilen Şarkısı Altüst Olmuşum",
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
-                       AdItem1(
-                            image: 'assets/images/resim4.png',
-                            text: "Yılın En Çok Dinlenilen Albümü",
-                          ),
-                           AdItem1(
-                            image: 'assets/images/resim5.png',
-                            text: "Yılın En Çok Dinlenilen Erkek Sanatçısı",
-                          ),
-                           AdItem1(
-                            image: 'assets/images/resim6.png',
-                            text: "Yılın En Çok Dinlenilen Şarkısı",
-                          ),
-                           AdItem1(
-                            image: 'assets/images/resim7.png',
-                            text: "Yılın En Çok Dinlenilen Grubu",
-                          ),
-                           AdItem1(
-                            image: 'assets/images/mavigri.png',
-                            text: "Yılın En Çok Dinlenilen Şarkısı Altüst Olmuşum",
-                          ),
-                      ],
-                      ), 
-                    ],
-                  
+                    ),
                   ),
                 ),
                 Column(
                   children: [
-                    SizedBox(height: 50,
-                    
+                    SizedBox(
+                      height: 50,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 10, bottom: 10,),
-                      child: Row( 
-                  
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Container(child: Text("Popüler Radyolar",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                        ),
-                        ),
-                  ],
-                  
-                ),
-                    ),
-                
-                 Container(
-                  height: 300,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      Row(
+                      padding: const EdgeInsets.only(
+                        left: 10,
+                        bottom: 10,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          AdItem2(
-                            image: 'assets/images/ikincisıra1.png',
-                             text: "",
-                          ),
-                          AdItem2(
-                            image: 'assets/images/ikincisıra2.png',
-                             text: "",
-                          ),
-                          AdItem2(
-                            image: 'assets/images/ikincisıra3.png',
-                             text: "",
-                          ),
-                          AdItem2(
-                            image: 'assets/images/ikincisıra4.png',
-                            text: "",
-                          ),
-                          AdItem2(
-                            image: 'assets/images/ikincisıra5.png',
-                            text: "",
-                          ),
-                          AdItem2(
-                            image: 'assets/images/ikincisıra6.png',
-                            text: "",
-                          ),
-                          AdItem2(
-                            image: 'assets/images/ikincisıra7.png',
-                            text: "",
-                          ),
-                          AdItem2(
-                            image: 'assets/images/ikincisıra8.png',
-                            text: "",
+                          Container(
+                            child: Text(
+                              "Popüler Radyolar",
+                              style: TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold),
+                            ),
                           ),
                         ],
                       ),
-                    ],
-                  ),
-                ),
-                 Column(
-                   children: [
-                     SizedBox(
-                      height: 50,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 10.0,bottom: 12.0),
-                  child: Row(mainAxisAlignment: MainAxisAlignment.start,
-                  children: [Container(child: Text('Popüler Sanatçılar',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),)],),
-                )
-                   ],
-                 ),
-                Container(
-                    height: 300,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                    
+                    ),
+                    Card(
+                      //üst üste iki container kullanmak için kullanılır.
+                      color: Color.fromARGB(255, 10, 10, 10),
+                      child: Container(
+                        height: 300,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            Row(
+                              children: [
+                                AdItem2(
+                                  image: 'assets/images/ikincisıra1.png',
+                                  text: "",
+                                ),
+                                AdItem2(
+                                  image: 'assets/images/ikincisıra2.png',
+                                  text: "",
+                                ),
+                                AdItem2(
+                                  image: 'assets/images/ikincisıra3.png',
+                                  text: "",
+                                ),
+                                AdItem2(
+                                  image: 'assets/images/ikincisıra4.png',
+                                  text: "",
+                                ),
+                                AdItem2(
+                                  image: 'assets/images/ikincisıra5.png',
+                                  text: "",
+                                ),
+                                AdItem2(
+                                  image: 'assets/images/ikincisıra6.png',
+                                  text: "",
+                                ),
+                                AdItem2(
+                                  image: 'assets/images/ikincisıra7.png',
+                                  text: "",
+                                ),
+                                AdItem2(
+                                  image: 'assets/images/ikincisıra8.png',
+                                  text: "",
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Column(
                       children: [
-                        Row(
-                          children: [                          
-                            AdItem3(
-                              image: 'assets/images/üçüncükısım1.png',
-                               text: "Yılın Popüler Sanatçısı",
-                            ),
-                            AdItem3(
-                              image: 'assets/images/üçüncükısım2.png',
-                              text: "Yılın Popüler Sanatçısı",
-                            ),
-                            AdItem3(
-                              image: 'assets/images/üçüncükısım3.png',
-                               text: "Yılın Popüler Sanatçısı",
-                            ),
-                            AdItem3(
+                        SizedBox(
+                          height: 50,
+                        ),
+                        Padding(
+                          padding:
+                              const EdgeInsets.only(left: 10.0, bottom: 12.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Container(
+                                child: Text(
+                                  'Popüler Sanatçılar',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                    Card(
+                      color: Color.fromARGB(255, 10, 10, 10),
+                      child: Container(
+                        height: 300,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            Row(
+                              children: [
+                                AdItem3(
+                                  image: 'assets/images/üçüncükısım1.png',
+                                  text: "Yılın Popüler Sanatçısı",
+                                ),
+                                AdItem3(
+                                  image: 'assets/images/üçüncükısım2.png',
+                                  text: "Yılın Popüler Sanatçısı",
+                                ),
+                                AdItem3(
+                                  image: 'assets/images/üçüncükısım3.png',
+                                  text: "Yılın Popüler Sanatçısı",
+                                ),
+                                AdItem3(
                                   image: 'assets/images/üçüncükısım4.png',
                                   text: "Yılın Popüler Sanatçısı",
                                 ),
@@ -334,89 +366,104 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
                                   image: 'assets/images/üçüncükısım8.png',
                                   text: "Yılın Popüler Sanatçısı",
                                 ),
+                              ],
+                            ),
                           ],
                         ),
+                      ),
+                    ),
+                    Column(
+                      children: [
+                        SizedBox(
+                          height: 50,
+                        ),
+                        Padding(
+                          padding:
+                              const EdgeInsets.only(left: 10.0, bottom: 10.0),
+                          child: Row(
+                            children: [
+                              Container(
+                                child: Text(
+                                  'Popüler Albümler',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              )
+                            ],
+                          ),
+                        )
                       ],
                     ),
-                  ),
-                 Column(
-                   children: [
-                     SizedBox(
-                      height: 50,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 10.0,bottom: 10.0),
-                  child: Row(children: [Container(child: Text('Popüler Albümler' ,style: TextStyle(fontSize: 20,fontWeight:FontWeight.bold ),),)],),
-                )
-                   ],
-                 ),
-                Container(
-                  height: 300,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      Row(
-                        children: [
-                          AdItem4(
-                            image: 'assets/images/dördüncükısım1.png',
-                            text: "",
-                          ),
-                          AdItem4(
-                            image: 'assets/images/dördüncükısım2.png',
-                             text: "",
-                          ),
-                          AdItem4(
-                            image: 'assets/images/dördüncükısım3.png',
-                             text: "",
-                          ),
-                          AdItem4(
-                                image: 'assets/images/dördüncükısım4.png',
-                                text: "",
-                              ),
-                              AdItem4(
-                                image: 'assets/images/dördüncükısım8.png',
-                                text: "",
-                              ),
-                            
-                            AdItem4(
-                                image: 'assets/images/dördüncükısım6.png',
-                                text: "",
-                              ),
-                              AdItem4(
-                                image: 'assets/images/dördüncükısım7.png',
-                                text: "",
-                              ),
+                    Card(
+                      color: Color.fromARGB(255, 10, 10, 10),
+                      child: Container(
+                        height: 300,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            Row(
+                              children: [
                                 AdItem4(
-                            image: 'assets/images/dördüncükısım8.png',
-                             text: "",
-                          ),
-                        ],
+                                  image: 'assets/images/dördüncükısım1.png',
+                                  text: "",
+                                ),
+                                AdItem4(
+                                  image: 'assets/images/dördüncükısım2.png',
+                                  text: "",
+                                ),
+                                AdItem4(
+                                  image: 'assets/images/dördüncükısım3.png',
+                                  text: "",
+                                ),
+                                AdItem4(
+                                  image: 'assets/images/dördüncükısım4.png',
+                                  text: "",
+                                ),
+                                AdItem4(
+                                  image: 'assets/images/dördüncükısım8.png',
+                                  text: "",
+                                ),
+                                AdItem4(
+                                  image: 'assets/images/dördüncükısım6.png',
+                                  text: "",
+                                ),
+                                AdItem4(
+                                  image: 'assets/images/dördüncükısım7.png',
+                                  text: "",
+                                ),
+                                AdItem4(
+                                  image: 'assets/images/dördüncükısım8.png',
+                                  text: "",
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ],
             ),
-              ],
-        ),
-        ),
+          ),
         );
-          
-            
       } else if (device == "tablet") {
-        return 
-        Row(
+        return Row(
           children: [
-            Expanded(flex:2,child: DrawerTablet()),
-            Expanded(flex: 10,child:Scaffold(
-          backgroundColor: Color.fromARGB(255, 10, 10, 10),
-          body:
-          SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: Column(
-              children: [
-                SizedBox(height: 50,),
-                     Wrap(
+            Expanded(flex: 2, child: DrawerTablet()),
+            Expanded(
+              flex: 10,
+              child: Scaffold(
+                backgroundColor: Color.fromARGB(255, 10, 10, 10),
+                body: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 50,
+                      ),
+                      Wrap(
                         children: [
                           InputChip(
                             label: Text("POP"),
@@ -451,7 +498,7 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
                           InputChip(
                             label: Text("RAP"),
                             selected: skills.contains("RAP"),
-                       selectedColor: Color.fromARGB(255, 4, 191, 10),
+                            selectedColor: Color.fromARGB(255, 4, 191, 10),
                             shadowColor: Color.fromARGB(255, 177, 252, 179),
                             backgroundColor: Colors.green.shade700,
                             onSelected: (value) {
@@ -466,7 +513,7 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
                           InputChip(
                             label: Text("SLOW"),
                             selected: skills.contains("SLOW"),
-                      selectedColor: Color.fromARGB(255, 4, 191, 10),
+                            selectedColor: Color.fromARGB(255, 4, 191, 10),
                             shadowColor: Color.fromARGB(255, 177, 252, 179),
                             backgroundColor: Colors.green.shade700,
                             onSelected: (value) {
@@ -525,237 +572,301 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 30,),
-                Padding(
-                  padding: const EdgeInsets.only(left:10.0,bottom: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Container(child: Text("2022'nin Favorileri",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),),
-                    ],
-                  ),
-                ),
-                Container(
-                  height: 300,
-                  child: ListView(
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10.0, bottom: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Container(
+                              child: Text(
+                                "2022'nin Favorileri",
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Card(
+                        color: Color.fromARGB(255, 10, 10, 10),
+                        child: GestureDetector(
+                          onTap: (() {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => musiclist()));
+                          }),
+                          child: Container(
+                            height: 300,
+                            child: ListView(
+                              scrollDirection: Axis.horizontal,
+                              children: [
+                                Row(
+                                  children: [
+                                    AdItem1(
+                                      image: 'assets/images/sezen.png',
+                                      text:
+                                          "Türkiyenin En Çok Dinlenilen Kadın Sanatçısı",
+                                    ),
+                                    AdItem1(
+                                      image: 'assets/images/resim3.png',
+                                      text: "Yılın En çok Dinlenen Grubu ",
+                                    ),
+                                    AdItem1(
+                                      image: 'assets/images/resim1.png',
+                                      text: "Yılın En Çok Dinlenilen Sanatçısı",
+                                    ),
+                                    AdItem1(
+                                      image: 'assets/images/resim4.png',
+                                      text: "Yılın En Çok Dinlenilen Albümü",
+                                    ),
+                                    AdItem1(
+                                      image: 'assets/images/resim5.png',
+                                      text:
+                                          "Yılın En Çok Dinlenilen Erkek Sanatçısı",
+                                    ),
+                                    AdItem1(
+                                      image: 'assets/images/resim6.png',
+                                      text: "Yılın En Çok Dinlenilen Şarkısı",
+                                    ),
+                                    AdItem1(
+                                      image: 'assets/images/resim7.png',
+                                      text: "Yılın En Çok Dinlenilen Grubu",
+                                    ),
+                                    AdItem1(
+                                      image: 'assets/images/mavigri.png',
+                                      text:
+                                          "Yılın En Çok Dinlenilen Şarkısı Altüst Olmuşum",
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Column(
+                        children: [
+                          SizedBox(
+                            height: 50,
+                          ),
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(left: 10.0, bottom: 10.0),
+                            child: Row(
+                              children: [
+                                Container(
+                                  child: Text(
+                                    'Popüler Radyolar',
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                      Card(
+                        color: Color.fromARGB(255, 10, 10, 10),
+                        child: Container(
+                          height: 300,
+                          child: ListView(
                             scrollDirection: Axis.horizontal,
-                    children: [
-                      Row(children: [ 
-                      
-                      AdItem1(
-                        image: 'assets/images/sezen.png',
-                        text:"Türkiyenin En Çok Dinlenilen Kadın Sanatçısı",
-                       ), 
-                       AdItem1(
-                        image: 'assets/images/resim3.png',
-                        text: "Yılın En çok Dinlenen Grubu ",
-
-                      ), 
-                      
-                      AdItem1(
-                        image: 'assets/images/resim1.png',
-                        text: "Yılın En Çok Dinlenilen Sanatçısı",
-
+                            children: [
+                              Row(
+                                children: [
+                                  AdItem2(
+                                    image: 'assets/images/ikincisıra1.png',
+                                    text: "",
+                                  ),
+                                  AdItem2(
+                                    image: 'assets/images/ikincisıra2.png',
+                                    text: "",
+                                  ),
+                                  AdItem2(
+                                    image: 'assets/images/ikincisıra3.png',
+                                    text: "",
+                                  ),
+                                  AdItem2(
+                                    image: 'assets/images/ikincisıra4.png',
+                                    text: "",
+                                  ),
+                                  AdItem2(
+                                    image: 'assets/images/ikincisıra5.png',
+                                    text: "",
+                                  ),
+                                  AdItem2(
+                                    image: 'assets/images/ikincisıra6.png',
+                                    text: "",
+                                  ),
+                                  AdItem2(
+                                    image: 'assets/images/ikincisıra7.png',
+                                    text: "",
+                                  ),
+                                  AdItem2(
+                                    image: 'assets/images/ikincisıra8.png',
+                                    text: "",
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
-                       AdItem1(
-                            image: 'assets/images/resim4.png',
-                            text: "Yılın En Çok Dinlenilen Albümü",
-                          ),
-                           AdItem1(
-                            image: 'assets/images/resim5.png',
-                            text: "Yılın En Çok Dinlenilen Erkek Sanatçısı",
-                          ),
-                           AdItem1(
-                            image: 'assets/images/resim6.png',
-                            text: "Yılın En Çok Dinlenilen Şarkısı",
-                          ),
-                           AdItem1(
-                            image: 'assets/images/resim7.png',
-                            text: "Yılın En Çok Dinlenilen Grubu",
-                          ),
-                           AdItem1(
-                            image: 'assets/images/mavigri.png',
-                            text: "Yılın En Çok Dinlenilen Şarkısı Altüst Olmuşum",
-                          ),
-                      ],
-                      ), 
-                    ],
-                  
-                  ),
-                ),
-                Column(
-                  children: [
-                    SizedBox(height: 50,),
-                    Padding(
-                      padding: const EdgeInsets.only(left:10.0, bottom: 10.0),
-                      child: Row(children: [Container(child: Text('Popüler Radyolar' ,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),)],),
-                    )
-                  ],
-                ),
-                 Container(
-                  height: 300,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      Row(
+                      Column(
                         children: [
-                          AdItem2(
-                                  image: 'assets/images/ikincisıra1.png',
-                                  text: "",
-                                ),
-                                AdItem2(
-                                  image: 'assets/images/ikincisıra2.png',
-                                  text: "",
-                                ),
-                                AdItem2(
-                                  image: 'assets/images/ikincisıra3.png',
-                                  text: "",
-                                ),
-                                AdItem2(
-                                  image: 'assets/images/ikincisıra4.png',
-                                  text: "",
-                                ),
-                                AdItem2(
-                                  image: 'assets/images/ikincisıra5.png',
-                                  text: "",
-                                ),
-                                AdItem2(
-                                  image: 'assets/images/ikincisıra6.png',
-                                  text: "",
-                                ),
-                                AdItem2(
-                                  image: 'assets/images/ikincisıra7.png',
-                                  text: "",
-                                ),
-                                AdItem2(
-                                  image: 'assets/images/ikincisıra8.png',
-                                  text: "",
-                                ),
+                          SizedBox(
+                            height: 50,
+                          ),
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(left: 10.0, bottom: 13.0),
+                            child: Row(
+                              children: [
+                                Container(
+                                  child: Text(
+                                    "Popüler Sanatçılar",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                )
+                              ],
+                            ),
+                          )
                         ],
                       ),
-                    ],
-                  ),
-                ),
-                 Column(
-                   children: [
-                     SizedBox(
-                      height: 50,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left:10.0,bottom: 13.0),
-                  child: Row(children: [Container(child: Text("Popüler Sanatçılar" ,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),)],),
-                )
-                   ],
-                 ),
-                Container(
-                  height: 300,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      Row(
+                      Card(
+                        color: Color.fromARGB(255, 10, 10, 10),
+                        child: Container(
+                          height: 300,
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            children: [
+                              Row(
+                                children: [
+                                  AdItem3(
+                                    image: 'assets/images/üçüncükısım1.png',
+                                    text: "Yılın Popüler Sanatçısı",
+                                  ),
+                                  AdItem3(
+                                    image: 'assets/images/üçüncükısım2.png',
+                                    text: "Yılın Popüler Sanatçısı",
+                                  ),
+                                  AdItem3(
+                                    image: 'assets/images/üçüncükısım3.png',
+                                    text: "Yılın Popüler Sanatçısı",
+                                  ),
+                                  AdItem3(
+                                    image: 'assets/images/üçüncükısım4.png',
+                                    text: "Yılın Popüler Sanatçısı",
+                                  ),
+                                  AdItem3(
+                                    image: 'assets/images/üçüncükısım5.png',
+                                    text: "Yılın Popüler Sanatçısı",
+                                  ),
+                                  AdItem3(
+                                    image: 'assets/images/üçüncükısım6.png',
+                                    text: "Yılın Popüler Sanatçısı",
+                                  ),
+                                  AdItem3(
+                                    image: 'assets/images/üçüncükısım7.png',
+                                    text: "Yılın Popüler Sanatçısı",
+                                  ),
+                                  AdItem3(
+                                    image: 'assets/images/üçüncükısım8.png',
+                                    text: "Yılın Popüler Sanatçısı",
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Column(
                         children: [
-                          AdItem3(
-                                  image: 'assets/images/üçüncükısım1.png',
-                                  text: "Yılın Popüler Sanatçısı",
-                                ),
-                                AdItem3(
-                                  image: 'assets/images/üçüncükısım2.png',
-                                  text: "Yılın Popüler Sanatçısı",
-                                ),
-                                AdItem3(
-                                  image: 'assets/images/üçüncükısım3.png',
-                                  text: "Yılın Popüler Sanatçısı",
-                                ),
-                                AdItem3(
-                                  image: 'assets/images/üçüncükısım4.png',
-                                  text: "Yılın Popüler Sanatçısı",
-                                ),
-                                AdItem3(
-                                  image: 'assets/images/üçüncükısım5.png',
-                                  text: "Yılın Popüler Sanatçısı",
-                                ),
-                                AdItem3(
-                                  image: 'assets/images/üçüncükısım6.png',
-                                  text: "Yılın Popüler Sanatçısı",
-                                ),
-                                AdItem3(
-                                  image: 'assets/images/üçüncükısım7.png',
-                                  text: "Yılın Popüler Sanatçısı",
-                                ),
-                                AdItem3(
-                                  image: 'assets/images/üçüncükısım8.png',
-                                  text: "Yılın Popüler Sanatçısı",
-                                ),
+                          SizedBox(
+                            height: 50,
+                          ),
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(left: 10.0, bottom: 10.0),
+                            child: Row(
+                              children: [
+                                Container(
+                                  child: Text(
+                                    "Popüler Albümler ",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                )
+                              ],
+                            ),
+                          )
                         ],
+                      ),
+                      Card(
+                        color: Color.fromARGB(255, 10, 10, 10),
+                        child: Container(
+                          height: 300,
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            children: [
+                              Row(
+                                children: [
+                                  AdItem4(
+                                    image: 'assets/images/dördüncükısım1.png',
+                                    text: "",
+                                  ),
+                                  AdItem4(
+                                    image: 'assets/images/dördüncükısım2.png',
+                                    text: "",
+                                  ),
+                                  AdItem4(
+                                    image: 'assets/images/dördüncükısım3.png',
+                                    text: "",
+                                  ),
+                                  AdItem4(
+                                    image: 'assets/images/dördüncükısım4.png',
+                                    text: "",
+                                  ),
+                                  AdItem4(
+                                    image: 'assets/images/dördüncükısım8.png',
+                                    text: "",
+                                  ),
+                                  AdItem4(
+                                    image: 'assets/images/dördüncükısım6.png',
+                                    text: "",
+                                  ),
+                                  AdItem4(
+                                    image: 'assets/images/dördüncükısım7.png',
+                                    text: "",
+                                  ),
+                                  AdItem4(
+                                    image: 'assets/images/dördüncükısım8.png',
+                                    text: "",
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     ],
                   ),
                 ),
-                 Column(
-                   children: [
-                     SizedBox(
-                      height: 50,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left:10.0,bottom:10.0),
-                  child: Row(children: [Container(child: Text("Popüler Albümler " ,style:TextStyle(fontSize: 20,fontWeight: FontWeight.bold) ,),)],),
-                )
-                   ],
-                 ),
-                Container(
-                  height: 300,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      Row(
-                        children: [
-                          AdItem4(
-                                  image: 'assets/images/dördüncükısım1.png',
-                                  text: "",
-                                ),
-                                AdItem4(
-                                  image: 'assets/images/dördüncükısım2.png',
-                                  text: "",
-                                ),
-                                AdItem4(
-                                  image: 'assets/images/dördüncükısım3.png',
-                                  text: "",
-                                ),
-                                AdItem4(
-                                  image: 'assets/images/dördüncükısım4.png',
-                                  text: "",
-                                ),
-                                AdItem4(
-                                  image: 'assets/images/dördüncükısım8.png',
-                                  text: "",
-                                ),
-                                AdItem4(
-                                  image: 'assets/images/dördüncükısım6.png',
-                                  text: "",
-                                ),
-                                AdItem4(
-                                  image: 'assets/images/dördüncükısım7.png',
-                                  text: "",
-                                ),
-                                AdItem4(
-                                  image: 'assets/images/dördüncükısım8.png',
-                                  text: "",
-                                ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
-        ),),
-
-           
           ],
         );
       } else if (device == "desktop" || device == "large") {
-        return  Row(
+        return Row(
           children: [
             Expanded(flex: 3, child: SpotifyDrawer()),
             Expanded(
@@ -804,7 +915,7 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
                           InputChip(
                             label: Text("RAP"),
                             selected: skills.contains("RAP"),
-                         selectedColor: Color.fromARGB(255, 4, 191, 10),
+                            selectedColor: Color.fromARGB(255, 4, 191, 10),
                             shadowColor: Color.fromARGB(255, 177, 252, 179),
                             backgroundColor: Colors.green.shade700,
                             onSelected: (value) {
@@ -819,7 +930,7 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
                           InputChip(
                             label: Text("SLOW"),
                             selected: skills.contains("SLOW"),
-                        selectedColor: Color.fromARGB(255, 4, 191, 10),
+                            selectedColor: Color.fromARGB(255, 4, 191, 10),
                             shadowColor: Color.fromARGB(255, 177, 252, 179),
                             backgroundColor: Colors.green.shade700,
                             onSelected: (value) {
@@ -834,7 +945,7 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
                           InputChip(
                             label: Text("CAZ"),
                             selected: skills.contains("CAZ"),
-                        selectedColor: Color.fromARGB(255, 4, 191, 10),
+                            selectedColor: Color.fromARGB(255, 4, 191, 10),
                             shadowColor: Color.fromARGB(255, 177, 252, 179),
                             backgroundColor: Colors.green.shade700,
                             onSelected: (value) {
@@ -849,7 +960,7 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
                           InputChip(
                             label: Text("ROCK"),
                             selected: skills.contains("ROCK"),
-                           selectedColor: Color.fromARGB(255, 4, 191, 10),
+                            selectedColor: Color.fromARGB(255, 4, 191, 10),
                             shadowColor: Color.fromARGB(255, 177, 252, 179),
                             backgroundColor: Colors.green.shade700,
                             onSelected: (value) {
@@ -865,7 +976,7 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
                             label: Text("HİP HOP"),
                             selected: skills.contains("HİP HOP"),
                             selectedColor: Color.fromARGB(255, 4, 191, 10),
-                             shadowColor: Color.fromARGB(255, 177, 252, 179),
+                            shadowColor: Color.fromARGB(255, 177, 252, 179),
                             backgroundColor: Colors.green.shade700,
                             onSelected: (value) {
                               if (value) {
@@ -894,51 +1005,62 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
                           ],
                         ),
                       ),
-                      Container(
-                        height: 300,
-                        child: ListView(
-                          scrollDirection: Axis.horizontal,
-                          children: [
-                            Row(
+                      Card(
+                        color: Color.fromARGB(255, 10, 10, 10),
+                        child: GestureDetector(
+                          onTap: (() {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => musiclist()));
+                          }),
+                          child: Container(
+                            height: 300,
+                            child: ListView(
+                              scrollDirection: Axis.horizontal,
                               children: [
-                                AdItem1(
-                                  image: 'assets/images/sezen.png',
-                                  text:
-                                      "Türkiyenin En Çok Dinlenilen Kadın Sanatçısı",
-                                ),
-                                AdItem1(
-                                  image: 'assets/images/resim3.png',
-                                  text: "Yılın En çok Dinlenen Grubu ",
-                                ),
-                                AdItem1(
-                                  image: 'assets/images/resim1.png',
-                                  text: "Yılın En Çok Dinlenilen Sanatçısı",
-                                ),
-                                AdItem1(
-                                  image: 'assets/images/resim4.png',
-                                  text: "Yılın En Çok Dinlenilen Albümü",
-                                ),
-                                AdItem1(
-                                  image: 'assets/images/resim5.png',
-                                  text:
-                                      "Yılın En Çok Dinlenilen Erkek Sanatçısı",
-                                ),
-                                AdItem1(
-                                  image: 'assets/images/resim6.png',
-                                  text: "Yılın En Çok Dinlenilen Şarkısı",
-                                ),
-                                AdItem1(
-                                  image: 'assets/images/resim7.png',
-                                  text: "Yılın En Çok Dinlenilen Grubu",
-                                ),
-                                AdItem1(
-                                  image: 'assets/images/mavigri.png',
-                                  text:
-                                      "Yılın En Çok Dinlenilen Şarkısı Altüst Olmuşum",
+                                Row(
+                                  children: [
+                                    AdItem1(
+                                      image: 'assets/images/sezen.png',
+                                      text:
+                                          "Türkiyenin En Çok Dinlenilen Kadın Sanatçısı",
+                                    ),
+                                    AdItem1(
+                                      image: 'assets/images/resim3.png',
+                                      text: "Yılın En çok Dinlenen Grubu ",
+                                    ),
+                                    AdItem1(
+                                      image: 'assets/images/resim1.png',
+                                      text: "Yılın En Çok Dinlenilen Sanatçısı",
+                                    ),
+                                    AdItem1(
+                                      image: 'assets/images/resim4.png',
+                                      text: "Yılın En Çok Dinlenilen Albümü",
+                                    ),
+                                    AdItem1(
+                                      image: 'assets/images/resim5.png',
+                                      text:
+                                          "Yılın En Çok Dinlenilen Erkek Sanatçısı",
+                                    ),
+                                    AdItem1(
+                                      image: 'assets/images/resim6.png',
+                                      text: "Yılın En Çok Dinlenilen Şarkısı",
+                                    ),
+                                    AdItem1(
+                                      image: 'assets/images/resim7.png',
+                                      text: "Yılın En Çok Dinlenilen Grubu",
+                                    ),
+                                    AdItem1(
+                                      image: 'assets/images/mavigri.png',
+                                      text:
+                                          "Yılın En Çok Dinlenilen Şarkısı Altüst Olmuşum",
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
-                          ],
+                          ),
                         ),
                       ),
                       Column(
@@ -947,53 +1069,68 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
                             height: 50,
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(left: 10.0,bottom:10.0),
-                            child: Row(children: [Container(child: Text("Popüler Radyolar",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),)],),
+                            padding:
+                                const EdgeInsets.only(left: 10.0, bottom: 10.0),
+                            child: Row(
+                              children: [
+                                Container(
+                                  child: Text(
+                                    "Popüler Radyolar",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                )
+                              ],
+                            ),
                           )
                         ],
                       ),
-                      Container(
-                        height: 300,
-                        child: ListView(
-                          scrollDirection: Axis.horizontal,
-                          children: [
-                            Row(
-                              children: [
-                              AdItem2(
-                                  image: 'assets/images/ikincisıra1.png',
-                                  text: "",
-                                ),
-                                AdItem2(
-                                  image: 'assets/images/ikincisıra2.png',
-                                  text: "",
-                                ),
-                                AdItem2(
-                                  image: 'assets/images/ikincisıra3.png',
-                                  text: "",
-                                ),
-                                AdItem2(
-                                  image: 'assets/images/ikincisıra4.png',
-                                  text: "",
-                                ),
-                                AdItem2(
-                                  image: 'assets/images/ikincisıra5.png',
-                                  text: "",
-                                ),
-                                AdItem2(
-                                  image: 'assets/images/ikincisıra6.png',
-                                  text: "",
-                                ),
-                                AdItem2(
-                                  image: 'assets/images/ikincisıra7.png',
-                                  text: "",
-                                ),
-                                AdItem2(
-                                  image: 'assets/images/ikincisıra8.png',
-                                  text: "",
-                                ),
-                              ],
-                            ),
-                          ],
+                      Card(
+                        color: Color.fromARGB(255, 10, 10, 10),
+                        child: Container(
+                          height: 300,
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            children: [
+                              Row(
+                                children: [
+                                  AdItem2(
+                                    image: 'assets/images/ikincisıra1.png',
+                                    text: "",
+                                  ),
+                                  AdItem2(
+                                    image: 'assets/images/ikincisıra2.png',
+                                    text: "",
+                                  ),
+                                  AdItem2(
+                                    image: 'assets/images/ikincisıra3.png',
+                                    text: "",
+                                  ),
+                                  AdItem2(
+                                    image: 'assets/images/ikincisıra4.png',
+                                    text: "",
+                                  ),
+                                  AdItem2(
+                                    image: 'assets/images/ikincisıra5.png',
+                                    text: "",
+                                  ),
+                                  AdItem2(
+                                    image: 'assets/images/ikincisıra6.png',
+                                    text: "",
+                                  ),
+                                  AdItem2(
+                                    image: 'assets/images/ikincisıra7.png',
+                                    text: "",
+                                  ),
+                                  AdItem2(
+                                    image: 'assets/images/ikincisıra8.png',
+                                    text: "",
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       Column(
@@ -1002,53 +1139,68 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
                             height: 50,
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(left:10.0,bottom:13.0),
-                            child: Row(children: [Container(child: Text("Popüler Sanatçılar" ,style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),)],),
+                            padding:
+                                const EdgeInsets.only(left: 10.0, bottom: 13.0),
+                            child: Row(
+                              children: [
+                                Container(
+                                  child: Text(
+                                    "Popüler Sanatçılar",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                )
+                              ],
+                            ),
                           )
                         ],
                       ),
-                      Container(
-                        height: 300,
-                        child: ListView(
-                          scrollDirection: Axis.horizontal,
-                          children: [
-                            Row(
-                              children: [
-                                AdItem3(
-                                  image: 'assets/images/üçüncükısım1.png',
-                                  text: "Yılın Popüler Sanatçısı",
-                                ),
-                                AdItem3(
-                                  image: 'assets/images/üçüncükısım2.png',
-                                  text: "Yılın Popüler Sanatçısı",
-                                ),
-                                AdItem3(
-                                  image: 'assets/images/üçüncükısım3.png',
-                                  text: "Yılın Popüler Sanatçısı",
-                                ),
-                                AdItem3(
-                                  image: 'assets/images/üçüncükısım4.png',
-                                  text: "Yılın Popüler Sanatçısı",
-                                ),
-                                AdItem3(
-                                  image: 'assets/images/üçüncükısım5.png',
-                                  text: "Yılın Popüler Sanatçısı",
-                                ),
-                                AdItem3(
-                                  image: 'assets/images/üçüncükısım6.png',
-                                  text: "Yılın Popüler Sanatçısı",
-                                ),
-                                AdItem3(
-                                  image: 'assets/images/üçüncükısım7.png',
-                                  text: "Yılın Popüler Sanatçısı",
-                                ),
-                                AdItem3(
-                                  image: 'assets/images/üçüncükısım8.png',
-                                  text: "Yılın Popüler Sanatçısı",
-                                ),
-                              ],
-                            ),
-                          ],
+                      Card(
+                        color: Color.fromARGB(255, 10, 10, 10),
+                        child: Container(
+                          height: 300,
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            children: [
+                              Row(
+                                children: [
+                                  AdItem3(
+                                    image: 'assets/images/üçüncükısım1.png',
+                                    text: "Yılın Popüler Sanatçısı",
+                                  ),
+                                  AdItem3(
+                                    image: 'assets/images/üçüncükısım2.png',
+                                    text: "Yılın Popüler Sanatçısı",
+                                  ),
+                                  AdItem3(
+                                    image: 'assets/images/üçüncükısım3.png',
+                                    text: "Yılın Popüler Sanatçısı",
+                                  ),
+                                  AdItem3(
+                                    image: 'assets/images/üçüncükısım4.png',
+                                    text: "Yılın Popüler Sanatçısı",
+                                  ),
+                                  AdItem3(
+                                    image: 'assets/images/üçüncükısım5.png',
+                                    text: "Yılın Popüler Sanatçısı",
+                                  ),
+                                  AdItem3(
+                                    image: 'assets/images/üçüncükısım6.png',
+                                    text: "Yılın Popüler Sanatçısı",
+                                  ),
+                                  AdItem3(
+                                    image: 'assets/images/üçüncükısım7.png',
+                                    text: "Yılın Popüler Sanatçısı",
+                                  ),
+                                  AdItem3(
+                                    image: 'assets/images/üçüncükısım8.png',
+                                    text: "Yılın Popüler Sanatçısı",
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       Column(
@@ -1057,53 +1209,68 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
                             height: 50,
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(left:10.0,bottom:13.0),
-                            child: Row(children: [Container(child: Text("Popüler Albümler" ,  style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),)],),
+                            padding:
+                                const EdgeInsets.only(left: 10.0, bottom: 13.0),
+                            child: Row(
+                              children: [
+                                Container(
+                                  child: Text(
+                                    "Popüler Albümler",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                )
+                              ],
+                            ),
                           )
                         ],
                       ),
-                      Container(
-                        height: 300,
-                        child: ListView(
-                          scrollDirection: Axis.horizontal,
-                          children: [
-                            Row(
-                              children: [
-                               AdItem4(
-                                  image: 'assets/images/dördüncükısım1.png',
-                                  text: "",
-                                ),
-                                AdItem4(
-                                  image: 'assets/images/dördüncükısım2.png',
-                                  text: "",
-                                ),
-                                AdItem4(
-                                  image: 'assets/images/dördüncükısım3.png',
-                                  text: "",
-                                ),
-                                AdItem4(
-                                  image: 'assets/images/dördüncükısım4.png',
-                                  text: "",
-                                ),
-                                AdItem4(
-                                  image: 'assets/images/dördüncükısım8.png',
-                                  text: "",
-                                ),
-                                AdItem4(
-                                  image: 'assets/images/dördüncükısım6.png',
-                                  text: "",
-                                ),
-                                AdItem4(
-                                  image: 'assets/images/dördüncükısım7.png',
-                                  text: "",
-                                ),
-                                AdItem4(
-                                  image: 'assets/images/dördüncükısım8.png',
-                                  text: "",
-                                ),
-                              ],
-                            ),
-                          ],
+                      Card(
+                        color: Color.fromARGB(255, 10, 10, 10),
+                        child: Container(
+                          height: 300,
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            children: [
+                              Row(
+                                children: [
+                                  AdItem4(
+                                    image: 'assets/images/dördüncükısım1.png',
+                                    text: "",
+                                  ),
+                                  AdItem4(
+                                    image: 'assets/images/dördüncükısım2.png',
+                                    text: "",
+                                  ),
+                                  AdItem4(
+                                    image: 'assets/images/dördüncükısım3.png',
+                                    text: "",
+                                  ),
+                                  AdItem4(
+                                    image: 'assets/images/dördüncükısım4.png',
+                                    text: "",
+                                  ),
+                                  AdItem4(
+                                    image: 'assets/images/dördüncükısım8.png',
+                                    text: "",
+                                  ),
+                                  AdItem4(
+                                    image: 'assets/images/dördüncükısım6.png',
+                                    text: "",
+                                  ),
+                                  AdItem4(
+                                    image: 'assets/images/dördüncükısım7.png',
+                                    text: "",
+                                  ),
+                                  AdItem4(
+                                    image: 'assets/images/dördüncükısım8.png',
+                                    text: "",
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],
@@ -1123,7 +1290,6 @@ class _SpotifyScreenState extends State<SpotifyScreen> {
         const spotifyappbar(),
         Expanded(
           child: buildScreen(),
-          
         ),
       ]),
       bottomNavigationBar: const SNavigationBar(),
@@ -1135,9 +1301,10 @@ class AdItem1 extends StatelessWidget {
   final String image;
   final String text;
 
-
   const AdItem1({
-    Key? key, required this.image, required this.text,
+    Key? key,
+    required this.image,
+    required this.text,
   }) : super(key: key);
 
   @override
@@ -1146,17 +1313,16 @@ class AdItem1 extends StatelessWidget {
       padding: const EdgeInsets.all(10.0),
       child: Column(
         children: [
-
-              Container(
+          Container(width: 185, child: Image.asset(image)),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
                 width: 185,
-                child: Image.asset(image)),
-
-  
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(width:185,child: Text(text,style: TextStyle(color: Colors.white54),)),
-              ),
-
+                child: Text(
+                  text,
+                  style: TextStyle(color: Colors.white54),
+                )),
+          ),
         ],
       ),
     );
@@ -1169,47 +1335,18 @@ class AdItem2 extends StatelessWidget {
 
   const AdItem2({
     Key? key,
-    required this.image, required this.text,
+    required this.image,
+    required this.text,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Column(
-        children: [
-          Container(width: 185, child: Image.asset(image)),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-               width:185,child: Text(text,style: TextStyle(color: Colors.white54,
-                ),),)
-          ),
-        ]
-      ),
-    );
-  }
-}
-class AdItem3 extends StatelessWidget {
-  final String image;
-  final String text;
-
-  const AdItem3({
-    Key? key,
-    required this.image, required this.text,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return  Padding(
+    return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Column(children: [
-       
-         Container(height: 150,
-         width: 150,
-          child: CircleAvatar(backgroundImage: AssetImage(image))),
+        Container(width: 185, child: Image.asset(image)),
         Padding(
-            padding: const EdgeInsets.only(top:8.0,left:35),
+            padding: const EdgeInsets.all(8.0),
             child: Container(
               width: 185,
               child: Text(
@@ -1223,18 +1360,55 @@ class AdItem3 extends StatelessWidget {
     );
   }
 }
+
+class AdItem3 extends StatelessWidget {
+  final String image;
+  final String text;
+
+  const AdItem3({
+    Key? key,
+    required this.image,
+    required this.text,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Column(children: [
+        Container(
+            height: 150,
+            width: 150,
+            child: CircleAvatar(backgroundImage: AssetImage(image))),
+        Padding(
+            padding: const EdgeInsets.only(top: 8.0, left: 35),
+            child: Container(
+              width: 185,
+              child: Text(
+                text,
+                style: TextStyle(
+                  color: Colors.white54,
+                ),
+              ),
+            )),
+      ]),
+    );
+  }
+}
+
 class AdItem4 extends StatelessWidget {
   final String image;
   final String text;
 
   const AdItem4({
     Key? key,
-    required this.image, required this.text,
+    required this.image,
+    required this.text,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
+    return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Column(children: [
         Container(width: 185, child: Image.asset(image)),

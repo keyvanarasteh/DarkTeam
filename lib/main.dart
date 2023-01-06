@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:responsive/common/spotify_appbar.dart';
 import 'package:responsive/spotify/login2.dart';
-import 'package:responsive/spotify/register.dart';
 
+import 'package:responsive/spotify/musiclist.dart';
+import 'package:responsive/spotify/register.dart';
 
 import 'package:responsive/spotify/spotify_screen.dart' show SpotifyScreen;
 

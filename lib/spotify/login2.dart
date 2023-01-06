@@ -13,6 +13,7 @@ class login2 extends StatefulWidget {
 }
 
 class _login2State extends State<login2> {
+  bool? isChecked = false;
   bool isSwitched = false;
   @override
   Widget build(BuildContext context) {
@@ -63,7 +64,7 @@ class _login2State extends State<login2> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Container(
-                      height:450,
+                      height: 450,
                       margin: const EdgeInsets.all(20),
                       padding: const EdgeInsets.symmetric(
                           horizontal: 32, vertical: 40),
@@ -85,11 +86,9 @@ class _login2State extends State<login2> {
                           TextField(
                             keyboardType: TextInputType.emailAddress,
                             decoration: InputDecoration(
-
                               labelText: "E-posta veya Telefon ",
                               prefixIcon: Icon(Icons.email),
                               border: OutlineInputBorder(),
-                              
                             ),
                           ),
                           SizedBox(
@@ -109,9 +108,7 @@ class _login2State extends State<login2> {
                               border: OutlineInputBorder(),
                             ),
                           ),
-
-
-                           Row(
+                          Row(
                             children: [
                               Row(
                                 children: [
@@ -119,20 +116,21 @@ class _login2State extends State<login2> {
                                       child: Text(
                                         'Şifremi Unuttum',
                                         style: TextStyle(
-                                            color: Color.fromARGB(255, 3, 173, 9)),
+                                            color:
+                                                Color.fromARGB(255, 3, 173, 9)),
                                       ),
                                       onPressed: () {})
                                 ],
                               ),
                             ],
                           ),
-                            Row(
+                          Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Padding(
                                 padding: EdgeInsets.all(5),
-                                child:
-                                    Text('Kişilerinizi Bağlamak İstermisiniz:'),
+                                child: Text(
+                                    'Diğer Cihazlardan Çıkış Yapmak İstermisiniz:'),
                               ),
                               CupertinoSwitch(
                                 value: isSwitched,
@@ -146,42 +144,63 @@ class _login2State extends State<login2> {
                               ),
                             ],
                           ),
+                          Row(
+                            children: [
+                              Checkbox(
+                                value: isChecked,
+                                activeColor: Color.fromARGB(255, 43, 120, 46),
+                                onChanged: (newBool) {
+                                  setState(() {
+                                    isChecked = newBool;
+                                  });
+                                },
+                              ),
+                              Row(
+                                children: [
+                                  TextButton(
+                                      child: Text(
+                                        'Şifrenizi Kaydetmek İstermisiniz.',
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      onPressed: () {})
+                                ],
+                              ),
+                            ],
+                          ),
                           SizedBox(
                             height: 25,
                           ),
-                         Column(
-                              children: [
-                                Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    SizedBox(
-                                      width: 200,
-                                      height: 40,
-                                      child: ElevatedButton(
-                                        onPressed: () {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      SpotifyScreen()));
-                                        },
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor:  Color.fromARGB(255, 3, 173, 9),
-                                          padding: EdgeInsets.all(10),
-                                          shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(20.0)),
-                                        ),
-                                      
-                                        child: Center(child: Text('GİRİŞ')),
+                          Column(
+                            children: [
+                              Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  SizedBox(
+                                    width: 200,
+                                    height: 40,
+                                    child: ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    SpotifyScreen()));
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor:
+                                            Color.fromARGB(255, 3, 173, 9),
+                                        padding: EdgeInsets.all(10),
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(20.0)),
                                       ),
+                                      child: Center(child: Text('GİRİŞ')),
                                     ),
-                                   
-                                  ],
-                                ),
-                              ],
-                            ),
-                        
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ],
                       ),
                     ),
